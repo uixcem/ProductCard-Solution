@@ -1,0 +1,15 @@
+//flex, typography mixins
+@mixin flex($direction: row, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin typography($font, $size, $weight, $color, $spacing: 0) {
+  font-family: $font;
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+  letter-spacing: $spacing;
+}

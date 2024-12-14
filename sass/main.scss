@@ -1,0 +1,119 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: $bg-color;
+  color: $text-color;
+  min-height: 100vh;
+  @include flex(column, center, center);
+}
+
+main.card {
+  background-color: $card-color;
+  box-shadow: $card-shadow;
+  border-radius: $border-radius;
+  max-width: 60rem;
+  width: 100%;
+  @include flex(row, space-between, center);
+}
+
+section.left {
+  width: 50%;
+
+  img {
+    border-radius: $border-radius 0 0 $border-radius;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+section.right {
+  width: 50%;
+  padding: $padding;
+
+  h1 {
+    font-family: $font-family-heading;
+    font-size: $font-size-heading;
+    font-weight: 900;
+    color: $heading-color;
+    margin-bottom: $margin-top;
+  }
+
+  h2 {
+    font-family: $font-family-text;
+    text-transform: uppercase;
+    font-size: $font-size-text;
+    font-weight: 300;
+    letter-spacing: 0.7rem;
+    color: $text-color;
+    margin-bottom: $margin-top;
+  }
+
+  p {
+    font-family: $font-family-text;
+    font-size: $font-size-text;
+    line-height: $line-height;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    color: $text-color;
+  }
+
+  .price {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &__discounted {
+      font-family: $font-family-heading;
+      font-size: 3rem;
+      font-weight: 500;
+      color: $button-color;
+      margin-right: 1rem;
+    }
+
+    &__original {
+      font-family: $font-family-text;
+      font-size: 1.5rem;
+      font-weight: 300;
+      text-decoration: line-through;
+      color: $text-color;
+      align-self: inherit;
+    }
+  }
+
+  button {
+    font-family: $font-family-button;
+    font-size: $font-size-button;
+    font-weight: 700;
+    line-height: 2rem;
+    padding: $button-padding;
+    border-radius: $button-border-radius;
+    background-color: $button-color;
+    color: $card-color;
+    transition: $transition;
+    width: 100%;
+    margin-top: $margin-top;
+    border: none;
+
+    &:hover {
+      background-color: $button-hover-color;
+    }
+
+    & img {
+      width: 1rem;
+      vertical-align: middle;
+      margin-right: 1rem;
+      margin-left: 0.5rem;
+    }
+  }
+}

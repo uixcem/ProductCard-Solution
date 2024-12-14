@@ -1,0 +1,11 @@
+{
+  "name": "productcard-solution",
+  "version": "1.0.0",
+  "description": "frontendmentor productcard solution",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "sass sass/main.scss:style.css -w"
+  },
+  "author": "uixcem",
+  "license": "ISC"
+}
