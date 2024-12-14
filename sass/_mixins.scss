@@ -13,3 +13,11 @@
   color: $color;
   letter-spacing: $spacing;
 }
+
+//Breakpoints
+
+@mixin mobile {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}

@@ -16,6 +16,9 @@ body {
   color: $text-color;
   min-height: 100vh;
   @include flex(column, center, center);
+  @include mobile {
+    padding: 2rem;
+  }
 }
 
 main.card {
@@ -25,81 +28,95 @@ main.card {
   max-width: 60rem;
   width: 100%;
   @include flex(row, space-between, center);
+  @include mobile {
+    flex-direction: column;
+    max-width: 34rem;
+  }
 }
 
 section.left {
   width: 50%;
+  @include mobile {
+    width: 100%;
+    height: 24rem;
+  }
 
   img {
+    @include mobile {
+      border-radius: $border-radius $border-radius 0 0;
+      display: block;
+    }
     border-radius: $border-radius 0 0 $border-radius;
     width: 100%;
+    display: block;
     height: 100%;
   }
 }
 
 section.right {
+  @include mobile {
+    padding: 2rem;
+    width: 100%;
+  }
   width: 50%;
   padding: $padding;
 
   h1 {
-    font-family: $font-family-heading;
-    font-size: $font-size-heading;
-    font-weight: 900;
+    @include typography($font-primary, $font-big, 900, $heading-color);
     color: $heading-color;
     margin-bottom: $margin-top;
   }
 
   h2 {
-    font-family: $font-family-text;
+    @include typography($font-secondary, $font-mid, 300, $text-color, 0.7rem);
+    @include mobile {
+      margin-top: 0.5rem;
+      font-size: $font-small;
+    }
     text-transform: uppercase;
-    font-size: $font-size-text;
-    font-weight: 300;
-    letter-spacing: 0.7rem;
     color: $text-color;
     margin-bottom: $margin-top;
   }
 
   p {
-    font-family: $font-family-text;
-    font-size: $font-size-text;
-    line-height: $line-height;
+    @include typography($font-secondary, $font-small, 300, $text-color, 0.1rem);
     margin-bottom: 1rem;
-    font-weight: 500;
-    color: $text-color;
+    @include mobile {
+      font-size: $font-small;
+      line-height: $line-height;
+    }
   }
 
   .price {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    @include flex(row, start, center);
 
     &__discounted {
-      font-family: $font-family-heading;
-      font-size: 3rem;
-      font-weight: 500;
-      color: $button-color;
+      @include typography($font-primary, $font-mid, 700, $button-color);
       margin-right: 1rem;
+      @include mobile {
+        font-size: 2.5rem;
+      }
     }
 
     &__original {
-      font-family: $font-family-text;
-      font-size: 1.5rem;
-      font-weight: 300;
+      @include typography($font-primary, $font-small, 300, $text-color);
       text-decoration: line-through;
-      color: $text-color;
       align-self: inherit;
+      @include mobile {
+        font-size: 1.2rem;
+      }
     }
   }
 
   button {
-    font-family: $font-family-button;
-    font-size: $font-size-button;
-    font-weight: 700;
+    @include typography($font-secondary, $font-small, 700, $card-color);
+    @include mobile {
+      font-size: 1.2rem;
+    }
     line-height: 2rem;
     padding: $button-padding;
     border-radius: $button-border-radius;
     background-color: $button-color;
-    color: $card-color;
     transition: $transition;
     width: 100%;
     margin-top: $margin-top;
@@ -114,6 +131,9 @@ section.right {
       vertical-align: middle;
       margin-right: 1rem;
       margin-left: 0.5rem;
+      @include mobile {
+        width: 1.3rem;
+      }
     }
   }
 }
